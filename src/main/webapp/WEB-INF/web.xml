@@ -93,6 +93,7 @@
         <web-resource-collection>
             <web-resource-name>PESQUISA_ADMIN</web-resource-name>
             <url-pattern>/pesquisa/administracao/bolsas-produtividade-cnpq.jsf</url-pattern>
+            <url-pattern>/pesquisa/administracao/estudos-clinicos.jsf</url-pattern>
         </web-resource-collection>
         <auth-constraint>
             <role-name>PESQUISA_ADMIN</role-name>
@@ -101,5 +102,9 @@
 
     <security-role>
         <role-name>PESQUISA_ADMIN</role-name>
+    </security-role>
+
+    <security-role>
+        <role-name>PESQUISA_USUARIO</role-name>
     </security-role>
 </web-app>

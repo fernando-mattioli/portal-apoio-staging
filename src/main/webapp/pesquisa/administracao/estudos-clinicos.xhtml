@@ -1,0 +1,41 @@
+<ui:composition template="/templates/default.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+	<ui:define name="content">
+		<h2>Estudos Clínicos</h2>
+
+		<h:form id="formEstudosClinicos">
+			<div class="ui-fluid formgrid grid">
+				<div class="field col-2">
+					<p:commandButton id="btnNovo" value="Novo" icon="pi pi-plus"
+									 action="#{estudosClinicosController.openDialogNovo}"
+									 update="dialogEstudoClinico" />
+				</div>
+			</div>
+					
+			<p:dataTable id="tblEstudosClinicos" var="estudo" value="#{estudosClinicosController.estudos}"
+						 emptyMessage="Nenhum registro encontrado.">
+				<p:column headerText="Código" field="id" style="width: 10%; text-align: center"  />
+
+				<p:column headerText="Título" field="titulo" style="width: 30%; text-align: center" />
+
+                <p:column headerText="Responsável" field="pesquisador" style="width: 30%; text-align: center" />
+
+                <p:column headerText="Status" style="width: 20%; text-align: center">
+                    <h:outputText value="#{estudosClinicosController.descreveStatus(estudo.status)}" />
+                </p:column>
+
+				<p:column headerText="Ações" style="width:10%; text-align: center">
+					<p:commandButton id="btnEdita" icon="pi pi-pencil"
+                                     action="#{estudosClinicosController.editaEstudoClinico(estudo)}"
+                                     update="dialogEstudoClinico" title="Editar" />
+				</p:column>
+			</p:dataTable>
+		</h:form>
+
+		<ui:include src="dialog-estudo-clinico.xhtml" />
+	</ui:define>
+</ui:composition>

@@ -25,20 +25,35 @@
         <fileset dir="${server.config.dir}/derby/" includes="*.jar" />
     </library>
 
+
+    <!-- Configuração datasources -->
+    <library id="postgresql">
+        <fileset dir="postgresql" includes="*.jar" />
+    </library>
+
     <!--
     <dataSource jndiName="portalApoioDS">
         <jdbcDriver libraryRef="h2" />
         <properties url="jdbc:h2:~/testdb;DB_CLOSE_DELAY=-1" user="sa" password="sa" /> </dataSource>
     -->
 
+    <!--
     <dataSource id="portalApoioDS" jndiName="portalApoioDS">
         <jdbcDriver libraryRef="derby" />
         <properties.derby.embedded databaseName="DefaultDB" createDatabase="create" />
+    </dataSource>
+    -->
+
+    <dataSource id="portalApoioDS" jndiName="portalApoioDS">
+        <jdbcDriver libraryRef="postgresql" />
+        <properties serverName="localhost" portNumber="5432" databaseName="portal_apoio_staging" user="postgres"
+                    password="123456" />
     </dataSource>
 
     <!-- Autenticação -->
     <basicRegistry id="basic" realm="BasicRealm">
         <user name="admin" password="admin" />
+        <user name="user" password="user" />
     </basicRegistry>
 
     <applicationMonitor dropinsEnabled="false" />
@@ -47,6 +62,10 @@
         <application-bnd>
             <security-role name="PESQUISA_ADMIN">
                 <user name="admin" />
+            </security-role>
+
+            <security-role name="PESQUISA_USUARIO">
+                <user name="user" />
             </security-role>
         </application-bnd>
     </webApplication>

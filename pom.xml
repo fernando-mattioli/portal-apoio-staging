@@ -28,6 +28,7 @@
 		<version.commons.lang>3.14.0</version.commons.lang>
         <version.derby>10.15.2.0</version.derby>
         <version.liberty>3.11.1</version.liberty>
+        <version.postgresql.jdbc>42.7.4</version.postgresql.jdbc>
 	</properties>
 
 	<dependencies>
@@ -129,6 +130,12 @@
             <version>${version.derby}</version>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>${version.postgresql.jdbc}</version>
+            <scope>provided</scope>
+        </dependency>
 	</dependencies>
 
 	<build>
@@ -168,6 +175,14 @@
                             <dependency>
                                 <groupId>org.apache.derby</groupId>
                                 <artifactId>derbytools</artifactId>
+                            </dependency>
+                        </dependencyGroup>
+
+                        <dependencyGroup>
+                            <location>postgresql</location>
+                            <dependency>
+                                <groupId>org.postgresql</groupId>
+                                <artifactId>postgresql</artifactId>
                             </dependency>
                         </dependencyGroup>
                     </copyDependencies>

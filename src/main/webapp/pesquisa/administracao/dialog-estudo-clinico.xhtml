@@ -1,0 +1,38 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:p="http://primefaces.org/ui">
+
+	<p:dialog id="dialogEstudoClinico" header="Editar Estudo Clínico" widgetVar="dialogEstudoClinico" width="80%"
+			  height="600px" appendTo="@(body)" modal="true">
+		<h:form id="formEstudoClinico">
+			<div class="ui-fluid formgrid grid">
+				<div class="field col-12">
+					<p:outputLabel for="titulo" value="Título:" />
+					<p:inputText id="titulo" maxlength="300"
+								 value="#{estudosClinicosController.estudoClinico.titulo}" />
+				</div>
+
+                <div class="field col-12">
+                    <p:outputLabel for="pesquisador" value="Pesquisador:" />
+                    <p:inputText id="pesquisador" maxlength="300"
+                                 value="#{estudosClinicosController.estudoClinico.pesquisador}" />
+                </div>
+
+                <div class="field col-12">
+                    <p:outputLabel for="status" value="Status:" />
+                    <p:selectOneMenu id="status" value="#{estudosClinicosController.estudoClinico.status}">
+                        <f:selectItem itemLabel="Em planejamento" itemValue="EP" />
+                        <f:selectItem itemLabel="Em execução" itemValue="EE" />
+                        <f:selectItem itemLabel="Suspenso temporariamente" itemValue="ST" />
+                        <f:selectItem itemLabel="Concluído" itemValue="CO" />
+                    </p:selectOneMenu>
+                </div>
+
+				<div class="field col-2">
+					<p:commandButton id="btnSalva" icon="pi pi-save" action="#{estudosClinicosController.salva}"
+                                     update="formEstudosClinicos" value="Salvar" />
+				</div>
+			</div>
+		</h:form>
+	</p:dialog>
+</ui:composition>
