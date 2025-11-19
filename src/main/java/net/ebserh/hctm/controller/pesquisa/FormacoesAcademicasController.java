@@ -6,6 +6,8 @@ import jakarta.inject.Inject;
 import jakarta.inject.Named;
 //import net.ebserh.hctm.model.pesquisa.FormacaoAcademica;
 //import net.ebserh.hctm.service.pesquisa.PesquisasService;
+import net.ebserh.hctm.model.pesquisa.FormacaoAcademica;
+import net.ebserh.hctm.service.pesquisa.PesquisasService;
 import net.ebserh.hctm.util.FacesUtils;
 import org.primefaces.PrimeFaces;
 
@@ -20,9 +22,7 @@ import java.util.stream.Collectors;
 @ViewScoped
 public class FormacoesAcademicasController implements Serializable {
 
-    /*
-    @Inject
-    private Logger logger;
+    private static final Logger logger = Logger.getAnonymousLogger();
 
     @Inject
     private PesquisasService pesquisasService;
@@ -67,7 +67,7 @@ public class FormacoesAcademicasController implements Serializable {
             PrimeFaces.current().executeScript("PF('dialogFormacaoAcademica').hide()");
             FacesUtils.showInfo("Formação salva com sucesso!");
         } catch (Exception e) {
-            FacesUtils.processaExcecao(e, logger, "Ocorreu um erro ao salvar a formação.");
+            FacesUtils.processaExcecao(e, "Ocorreu um erro ao salvar a formação.");
         }
     }
 
@@ -92,7 +92,5 @@ public class FormacoesAcademicasController implements Serializable {
     public void setFormacaoAcademica(FormacaoAcademica formacaoAcademica) {
         this.formacaoAcademica = formacaoAcademica;
     }
-
-     */
 
 }

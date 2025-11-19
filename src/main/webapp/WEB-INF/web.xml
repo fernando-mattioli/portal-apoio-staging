@@ -96,6 +96,7 @@
             <url-pattern>/pesquisa/administracao/estudos-clinicos.jsf</url-pattern>
             <url-pattern>/pesquisa/administracao/cbos.jsf</url-pattern>
             <url-pattern>/pesquisa/administracao/fontes-financiadoras.jsf</url-pattern>
+            <url-pattern>/pesquisa/administracao/formacoes-academicas.jsf</url-pattern>
             <url-pattern>/pesquisa/administracao/orgaos-financiadores.jsf</url-pattern>
             <url-pattern>/pesquisa/administracao/status-projeto.jsf</url-pattern>
         </web-resource-collection>
